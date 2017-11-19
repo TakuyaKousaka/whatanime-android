@@ -1,13 +1,11 @@
 <resources>
     <string name="app_name">WhatAnimu?</string>
-    <string name="app_name_loading">WhatAnimu? is loading..</string>
     <string name="indicator_permissions_needed">This app need access to device storage to work</string>
     <string name="action_request_permissions">Request permission</string>
     <string name="error_permissions_denied">Permission denied</string>
     <string name="error_image_recovered_from_storage">Error in recovering image from storage</string>
     <string name="error_photo_required">A photo is required to search on WhatAnime</string>
     <string name="indicator_searching_anime">Searching anime…</string>
-    <string name="indicator_encoding_image">Encoding image…</string>
     <string name="error_service_unknown">Error unknown in service</string>
     <string name="error_service_response_or_body_null">Response or response body is null</string>
     <string name="indicator_choose_gallery_app">Choose a gallery app</string>

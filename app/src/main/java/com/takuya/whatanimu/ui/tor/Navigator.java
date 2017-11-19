@@ -21,11 +21,7 @@ public class Navigator {
     public static void goToMain(AppCompatActivity activity, View view) {
         ActivityOptionsCompat aoc;
         if ((AndroidVersions.isLollipop())) {
-            aoc = ActivityOptionsCompat.makeClipRevealAnimation(view,
-                    0,
-                    0,
-                    view.getWidth(),
-                    view.getHeight());
+            aoc = ActivityOptionsCompat.makeClipRevealAnimation(view, 0, 0, view.getWidth(), view.getHeight());
         } else {
             aoc = ActivityOptionsCompat.makeBasic();
         }

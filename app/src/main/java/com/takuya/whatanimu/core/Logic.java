@@ -9,15 +9,9 @@ import com.takuya.whatanimu.core.image.GlideLoader;
 import com.takuya.whatanimu.core.network.LogicNetwork;
 import com.takuya.whatanimu.core.network.LogicNetworkRetrofit;
 
-/**
- * Created by andreetorres on 23/09/17.
- */
-
 public class Logic {
     public static LogicApp get(Context context) {
-        return LogicAppImpl.newInstace(context,
-                getNetwork(),
-                getPreferences(context));
+        return LogicAppImpl.newInstace(context, getNetwork(), getPreferences(context));
     }
 
     public static ImageLoader imageLoader(Context context) {

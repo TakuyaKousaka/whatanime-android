@@ -15,24 +15,12 @@ public class LogicAppImpl implements LogicApp {
     private LogicNetwork network;
     private LogicPreferences preferences;
 
-    static LogicAppImpl newInstace(Context context,
-                                   LogicNetwork network,
-                                   LogicPreferences preferences) {
+    static LogicAppImpl newInstace(Context context, LogicNetwork network, LogicPreferences preferences) {
         LogicAppImpl instance = new LogicAppImpl();
         instance.context = context;
         instance.network = network;
         instance.preferences = preferences;
         return instance;
-    }
-
-    @Override
-    public boolean isFirstTutorial() {
-        return preferences.isFirstTutorial();
-    }
-
-    @Override
-    public void finishFirstTutorial() {
-        preferences.finishFirstTutorial();
     }
 
     @Override

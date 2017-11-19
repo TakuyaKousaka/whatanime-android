@@ -36,7 +36,6 @@ import com.takuya.whatanimu.core.entity.SearchDetail;
 import com.takuya.whatanimu.ui.adapter.AdapterSearchResults;
 import com.takuya.whatanimu.ui.tor.Animator;
 import com.takuya.whatanimu.ui.tor.Navigator;
-import com.takuya.whatanimu.ui.tor.Tutorator;
 import com.takuya.whatanimu.util.C;
 import com.takuya.whatanimu.util.Mapper;
 
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupViews();
         setupActions();
         setupWakeLock();
-        showTutorial();
     }
 
     @Override
@@ -180,20 +178,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void setupWakeLock() {
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "searchingAnimeWakeLock");
-    }
-
-    private void showTutorial() {
-        if (logic.isFirstTutorial()) {
-            _showTutorial();
-            logic.finishFirstTutorial();
-        }
-    }
-
-    private void _showTutorial() {
-        Tutorator.with(MainActivity.this)
-                .addViewString(photoIv, getString(R.string.tutorial_one))
-                .addViewString(searchFab, getString(R.string.tutorial_two))
-                .start();
     }
 
     private boolean isDrawerOpened() {
@@ -318,11 +302,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_item_tutorial:
-                closeDrawer();
-                _showTutorial();
-                break;
-            case R.id.menu_item_information:
+                case R.id.menu_item_information:
                 Navigator.goToInformation(MainActivity.this);
         }
         return false;
