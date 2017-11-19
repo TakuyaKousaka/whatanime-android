@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/background_header" />
+        app:srcCompat="@drawable/bg" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_header_app_version"
@@ -20,7 +20,7 @@
         android:layout_marginLeft="@dimen/activity_margin"
         android:layout_marginStart="@dimen/activity_margin"
         android:text="@string/app_name"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/secondary_text_light" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_header_app_name"
@@ -31,13 +31,5 @@
         android:layout_marginLeft="@dimen/activity_margin"
         android:layout_marginStart="@dimen/activity_margin"
         android:text="@string/app_name"
-        android:textColor="@android:color/white" />
-
-    <android.support.v7.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/material_status_bar_height"
-        android:layout_above="@+id/tv_header_app_name"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_whatanime_big_logo" />
+        android:textColor="@android:color/secondary_text_light" />
 </RelativeLayout>

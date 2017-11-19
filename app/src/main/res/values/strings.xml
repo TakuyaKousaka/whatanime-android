@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WhatAnime</string>
+    <string name="app_name">WhatAnimu?</string>
     <string name="indicator_permissions_needed">This app need access to device storage to work</string>
     <string name="action_request_permissions">Request permission</string>
     <string name="error_permissions_denied">Permission denied</string>
@@ -42,4 +42,5 @@
     <string name="error_internet_connection">Internet connection not available</string>
     <string name="error_no_results_founded">No results founded</string>
     <string name="error_service_not_initialized">Service connection not initialized</string>
+    <string name="title_activity_settings">Info</string>
 </resources>

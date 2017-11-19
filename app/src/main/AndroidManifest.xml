@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.maddog05.whatanime">
+    package="com.takuya.whatanimu">
 
     <!-- DANGEROUS PERMISSIONS -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -22,7 +22,7 @@
         <!-- PROVIDERS -->
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.maddog05.whatanime.fileprovider"
+            android:authorities="com.takuya.whatanimu.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -48,10 +48,7 @@
         <activity
             android:name=".ui.VideoPreviewActivity"
             android:theme="@style/VideoPreviewTheme" />
-        <activity android:name=".ui.InformationActivity"></activity>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="c3f693a27e7ad49847e5c8ab8ed925295971b9bf" />
+        <activity android:name=".ui.InformationActivity" />
     </application>
 
 </manifest>
