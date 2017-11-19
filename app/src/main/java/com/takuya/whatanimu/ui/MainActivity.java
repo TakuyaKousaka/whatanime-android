@@ -1,5 +1,6 @@
 package com.takuya.whatanimu.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.PowerManager;
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BottomSheetBehavior resultsBottom;
     private AppCompatImageButton closeBottomBtn;
     private RecyclerView resultsRv;
-    private LinearLayout indicatorLoadingLayout;
     private AppCompatTextView indicatorStatusTv;
+    private ProgressDialog LoadDialog;
 
     private static final int REQUEST_PICTURE_GALLERY = 102;
     private Bitmap bitmap;
@@ -127,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //drawer.addDrawerListener(this);
         toggle.syncState();
         navview.setNavigationItemSelectedListener(this);
-
         View _view = findViewById(R.id.bottom_search_results);
         resultsBottom = BottomSheetBehavior.from(_view);
         resultsBottom.setHideable(true);
@@ -137,8 +137,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         photoIv = findViewById(R.id.iv_photo);
         searchFab = findViewById(R.id.fab_search);
         closeBottomBtn = findViewById(R.id.btn_close_bottom);
-        indicatorLoadingLayout = findViewById(R.id.layout_main_loading);
-        indicatorStatusTv = findViewById(R.id.tv_progress_status);
         AppCompatTextView versionAppTv = navview.getHeaderView(0).findViewById(R.id.tv_header_app_version);
         versionAppTv.setText(App.getAppVersion(MainActivity.this));
     }
@@ -168,14 +166,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         photoIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isProcessRunning())
                     selectImage();
             }
         });
         searchFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isProcessRunning())
                     searchAnime();
             }
         });
@@ -220,22 +216,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toasty.error(MainActivity.this, text, Toast.LENGTH_SHORT).show();
     }
 
-    private boolean isProcessRunning() {
-        return indicatorLoadingLayout.getVisibility() == View.VISIBLE;
-    }
-
-    private void showLoadingIndicator(String message) {
-        if (!isProcessRunning()) {
-            indicatorLoadingLayout.setVisibility(View.VISIBLE);
+    private void showLoadingIndicator() {
+            LoadDialog = new ProgressDialog(MainActivity.this);
+            LoadDialog.setMessage(getString(R.string.indicator_searching_anime));
+            //LoadDialog.setCanceledOnTouchOutside(false);
+            LoadDialog.setCancelable(false);
+            LoadDialog.show();
             hideFab();
-        }
-        indicatorStatusTv.setText(message);
+
     }
 
     private void hideLoadingIndicator() {
-        if (isProcessRunning()) {
-            indicatorLoadingLayout.setVisibility(View.GONE);
-        }
+            LoadDialog.hide();
         showFab();
     }
 
@@ -263,7 +255,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (!Checkers.isInternetAvailable(MainActivity.this)) {
             showError(getString(R.string.error_internet_connection));
         } else {
-            showLoadingIndicator(getString(R.string.indicator_encoding_image));
             new Images.EncodeBitmapBase64AsyncTask(bitmap) {
                 @Override
                 protected void onPostExecute(String encoded) {
@@ -281,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void _searchAnime(String encoded) {
         if (Checkers.isInternetAvailable(MainActivity.this)) {
             wakeLock.acquire();
-            showLoadingIndicator(getString(R.string.indicator_searching_anime));
+            showLoadingIndicator();
             logic.searchAnime(encoded, new Callback<SearchAnimeResponse>() {
                 @Override
                 public void done(SearchAnimeResponse response) {

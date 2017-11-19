@@ -14,10 +14,6 @@ import java.util.List;
 import me.toptas.fancyshowcase.DismissListener;
 import me.toptas.fancyshowcase.FancyShowCaseView;
 
-/**
- * Created by andreetorres on 1/10/17.
- */
-
 public class Tutorator {
 
     private Activity activity;

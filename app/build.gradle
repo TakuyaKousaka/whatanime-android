@@ -24,10 +24,6 @@ android {
             it.buildConfigField 'Boolean', 'IS_LOGGER_ENABLED', DebugIsLoggerEnabled
         }
     }
-
-    buildTypes.each {
-        it.buildConfigField 'String', 'TOKEN', WhatAnimeToken
-    }
 }
 
 dependencies {

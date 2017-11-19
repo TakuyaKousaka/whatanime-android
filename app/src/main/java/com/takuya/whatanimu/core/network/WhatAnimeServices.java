@@ -9,10 +9,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-/**
- * Created by andreetorres on 23/09/17.
- */
-
 public interface WhatAnimeServices {
     @FormUrlEncoded
     @POST("search")

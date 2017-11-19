@@ -17,10 +17,6 @@ import com.takuya.whatanimu.ui.MainActivity;
 import com.takuya.whatanimu.ui.VideoPreviewActivity;
 import com.takuya.whatanimu.util.C;
 
-/**
- * Created by andreetorres on 27/09/17.
- */
-
 public class Navigator {
     public static void goToMain(AppCompatActivity activity, View view) {
         ActivityOptionsCompat aoc;

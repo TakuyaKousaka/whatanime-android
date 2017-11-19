@@ -35,20 +35,11 @@
                 android:orientation="vertical"
                 android:padding="@dimen/activity_margin">
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true">
-
                     <com.maddog05.maddogutilities.view.SquareImageView
                         android:id="@+id/iv_photo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_photo" />
-
-                </android.support.v7.widget.CardView>
+                        app:srcCompat="@drawable/ic_upload" />
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
@@ -76,29 +67,6 @@
             <include layout="@layout/content_search_result" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layout_main_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/progress_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ProgressBar
-                style="@style/Widget.AppCompat.ProgressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_progress_status"
-                style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_views"
-                android:text="@string/app_name"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView

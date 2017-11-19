@@ -40,9 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LogicNetworkRetrofit implements LogicNetwork {
 
     private static final String TAG = "#Retrofit";
-
     private static final String URL = "https://whatanime.ga/api/";
-    private static final String TOKEN = BuildConfig.TOKEN;
     private static final long TIMEOUT = 60;
 
     private WhatAnimeServices services;
@@ -76,7 +74,7 @@ public class LogicNetworkRetrofit implements LogicNetwork {
     public void searchWithPhoto(final Context context, String encodedImage, final Callback<Pair<String, SearchDetail>> callback) {
         logStart("searchWithPhoto");
         if (services != null) {
-            services.search(TOKEN, encodedImage).enqueue(new retrofit2.Callback<JsonObject>() {
+            services.search(WhatAnimeToken.TOKEN, encodedImage).enqueue(new retrofit2.Callback<JsonObject>() {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     Logger2.get().d(TAG, "searchWithPhoto: onResponse: httpCode = " + response.code());
@@ -145,8 +143,7 @@ public class LogicNetworkRetrofit implements LogicNetwork {
                     }
             }, null);
             SSLSocketFactory socketFactory = new MaddogTLSSocketFactory();
-            return new OkHttpClient.Builder()
-                    .sslSocketFactory(socketFactory, new X509TrustManager() {
+            return new OkHttpClient.Builder().sslSocketFactory(socketFactory, new X509TrustManager() {
                         @SuppressLint("TrustAllX509TrustManager")
                         @Override
                         public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {

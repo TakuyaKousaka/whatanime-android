@@ -66,7 +66,7 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/space_between_views" />
+                android:layout_height="16dp" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_app_developer"
@@ -74,6 +74,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/information_app_developer"
+                android:textColor="@color/colorPrimary" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_between_views" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_main_dev"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/information_app_original"
                 android:textColor="@color/colorPrimary" />
 
             <android.support.v4.widget.Space

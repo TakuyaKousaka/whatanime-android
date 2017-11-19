@@ -15,10 +15,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-/**
- * Created by andreetorres on 24/09/17.
- */
-
 public class Mapper {
     public static String parseSecondToHourTimeSeconds(double seconds) {
         int realSeconds;

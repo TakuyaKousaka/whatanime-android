@@ -1,7 +1,8 @@
 .idea
 .gradle
 local.properties
-key.txt
 whatanime-android-github.iml
 build
 app/fabric.properties
+app/src/main/java/com/takuya/whatanimu/core/network/WhatAnimeToken.java
+captures/com.takuya.whatanimu_2017.11.19_12.18.li

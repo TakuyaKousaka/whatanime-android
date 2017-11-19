@@ -27,6 +27,12 @@ public class InformationActivity extends AppCompatActivity {
                 Navigator.goToWebBrowser(InformationActivity.this, getString(R.string.url_app_dev));
             }
         });
+        findViewById(R.id.tv_main_dev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigator.goToWebBrowser(InformationActivity.this, getString(R.string.url_main_dev));
+            }
+        });
         findViewById(R.id.tv_api_developer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
